@@ -1,0 +1,85 @@
+@import 'tailwindcss' source(none);
+@source './**/*.{ts,tsx}';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #07080c;
+  --color-surface: #0d0f17;
+  --color-surface-2: #131623;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-muted: #9aa3b8;
+  --color-brand: #818cf8;
+  --color-brand-2: #22d3ee;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-flow: flow 3s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes flow {
+    from { left: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    to { left: 100%; opacity: 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-ink text-white font-sans antialiased;
+  }
+  ::selection {
+    background: rgb(129 140 248 / 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-2);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, var(--color-brand), var(--color-brand-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .card {
+    @apply rounded-3xl border border-line bg-surface/70 backdrop-blur-sm;
+  }
+  .gradient-border {
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(135deg, var(--color-brand), var(--color-brand-2)) border-box;
+    border: 1px solid transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
