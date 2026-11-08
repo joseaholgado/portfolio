@@ -25,11 +25,11 @@ import training from './assets/projects/training.webp'
 export const PROFILE = {
   name: 'Jose Antonio Holgado',
   shortName: 'Jose Antonio',
-  location: 'Málaga, España',
+  location: 'España',
   email: 'joseantonio-hb@hotmail.com',
   github: 'https://github.com/joseaholgado',
   linkedin: 'https://www.linkedin.com/in/jos%C3%A9-antonio-holgado-bonet-033243199/',
-  cv: `${import.meta.env.BASE_URL}CV_Jose_Antonio_Holgado.pdf`,
+  cv: `${import.meta.env.BASE_URL}Cv_oxf_Jose_Antonio_Holgado_es.pdf`,
   roles: ['Data Engineer', 'Frontend Developer', 'Especialista en IA y Big Data'],
   pitch:
     'Construyo pipelines que recogen datos de ficheros, APIs y la web, los limpian y los dejan listos para análisis e IA. Y cuando hace falta, también creo el dashboard o la aplicación web que pone esos datos en manos del usuario.',
